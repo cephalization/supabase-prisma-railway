@@ -20,6 +20,7 @@ async function poll() {
 }
 
 async function main() {
+  console.log("starting script...");
   // Retrieve all published posts
   const allPosts = await prisma.post.findMany({
     where: { published: true },
