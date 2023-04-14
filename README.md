@@ -58,3 +58,8 @@ As a next step, explore the `script.ts` file to see how to use Prisma Client to 
 
 Import this git repo into Railway and deploy it.
 The Dockerfile will be automatically detected and used to build/deploy the project.
+
+Note that this probably just crash loops when deployed until you disable ssl on
+the database connection.
+
+Edit your DATABASE_URL in railway by adding `?sslmode=disable` and observe that it starts working.
