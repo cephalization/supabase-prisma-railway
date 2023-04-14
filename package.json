@@ -10,7 +10,7 @@
     "test:watch": "jest --watch",
     "db:push": "prisma db push",
     "db:seed": "prisma db seed",
-    "postinstall": "prisma generate"
+    "db:generate": "prisma generate"
   },
   "devDependencies": {
     "@types/node": "18.15.11"
