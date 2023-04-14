@@ -74,7 +74,6 @@ async function cleanup() {
 
 process.on("SIGINT", cleanup);
 process.on("SIGTERM", cleanup);
-process.on("SIGKILL", cleanup);
 
 main()
   .then(async () => {

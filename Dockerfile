@@ -2,16 +2,20 @@ FROM node:18-slim
 
 ENV NODE_ENV=production
 ENV NPM_CONFIG_UPDATE_NOTIFIER=false
+ARG DATABASE_URL
+
+RUN apt-get update
+RUN apt-get install -y openssl libssl-dev
 
 WORKDIR /app
 
-COPY package*.json .
+COPY . .
 
-RUN npm ci --only=production
+RUN npm ci
 RUN npm run db:generate
 
-USER node
+RUN chown -R node:node /app
 
-COPY --chown=node:node / .
+USER node
 
 CMD ["npm", "start"]
